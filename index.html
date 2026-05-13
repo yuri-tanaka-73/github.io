@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>田中 佑理 / Yuri Tanaka — Portfolio</title>
+  <meta name="description" content="田中 佑理（Yuri Tanaka）のポートフォリオ。名古屋市立大学 経済学部 会計ファイナンス学科 3年。AIエージェント・GIS・Python を学習中。">
+  <meta property="og:title" content="田中 佑理 / Yuri Tanaka — Portfolio">
+  <meta property="og:description" content="名古屋市立大学 経済学部 会計ファイナンス学科 3年生のポートフォリオ。">
+  <meta property="og:image" content="TODO: プロフィール写真のURLを入れてください">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuri-tanaka-73.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23C3D825'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='28' fill='%23111'>YT</text></svg>">
+  <style>
+/* ===== CUSTOM PROPERTIES ===== */
+:root {
+  --bg:      #0f1117;
+  --bg-elev: #1a1d27;
+  --fg:      #e8eaf0;
+  --muted:   #8b90a0;
+  --border:  #2a2d3a;
+  --card:    #1e2130;
+  --accent:   #FFF44F;
+  --accent-2: #FFAA00;
+  --accent-3: #E82020;
+  --gradient-hero: linear-gradient(135deg, var(--accent), var(--accent-2) 50%, var(--accent-3));
+  --shadow-glow:   0 8px 32px -8px color-mix(in srgb, var(--accent) 40%, transparent);
+  --hdr: 64px;
+  --r:   16px;
+  --pill: 9999px;
+  --ease: 200ms ease-out;
+}
+[data-theme="light"] {
+  --bg:      #f5f6f0;
+  --bg-elev: #ffffff;
+  --fg:      #1a1d27;
+  --muted:   #5a5f72;
+  --border:  #d8dae0;
+  --card:    #ffffff;
+  --accent:   #c9b800;
+  --accent-2: #c98000;
+  --accent-3: #b01010;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background: var(--bg); color: var(--fg); line-height: 1.75; overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+ul, ol { list-style: none; }
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--accent); color: #111;
+  padding: .4rem 1rem; border-radius: var(--pill);
+  font-weight: 700; z-index: 9999; text-decoration: none;
+  transition: top var(--ease);
+}
+.skip-link:focus { top: .75rem; }
+.blob {
+  position: fixed; border-radius: 50%;
+  filter: blur(80px); opacity: .2;
+  pointer-events: none; z-index: 0;
+}
+.blob-1 { width: 480px; height: 480px; background: var(--accent);   top: -120px; left: -120px; }
+.blob-2 { width: 400px; height: 400px; background: var(--accent-2); bottom: 8%;  right: -80px; }
+.blob-3 { width: 320px; height: 320px; background: var(--accent-3); top: 50%;    left: 38%; }
+header {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--hdr);
+  background: color-mix(in srgb, var(--bg-elev) 85%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); z-index: 100;
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto; height: 100%;
+  padding: 0 1.5rem; display: flex; align-items: center; gap: 1.5rem;
+}
+.logo { font-weight: 800; font-size: 1.2rem; color: var(--accent); text-decoration: none; letter-spacing: .05em; flex-shrink: 0; }
+nav { flex: 1; }
+nav ul { display: flex; gap: .25rem; justify-content: center; }
+nav a {
+  color: var(--muted); text-decoration: none; font-size: .875rem;
+  padding: .35rem .7rem; border-radius: var(--pill);
+  transition: color var(--ease), background var(--ease);
+}
+nav a:hover, nav a:focus-visible { color: var(--fg); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.header-controls { display: flex; gap: .5rem; flex-shrink: 0; }
+.header-controls button {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid var(--border); color: var(--fg); border-radius: var(--pill);
+  padding: .3rem .75rem; font-size: .8rem; cursor: pointer;
+  transition: background var(--ease), border-color var(--ease);
+}
+.header-controls button:hover, .header-controls button:focus-visible {
+  background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: var(--accent);
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+main { position: relative; z-index: 1; }
+section { padding: 5rem 1.5rem; scroll-margin-top: var(--hdr); }
+.section-inner { max-width: 960px; margin: 0 auto; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; margin-bottom: 2rem; display: flex; flex-direction: column; gap: .5rem; }
+.section-bar { display: block; width: 64px; height: 4px; border-radius: var(--pill); background: var(--gradient-hero); }
+#hero { min-height: 100svh; display: flex; align-items: center; padding-top: calc(var(--hdr) + 2rem); }
+.hero-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+.hero-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: var(--shadow-glow); }
+.hero-text { flex: 1; min-width: 260px; }
+.gradient-text {
+  font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; line-height: 1.1;
+  background: var(--gradient-hero); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: .75rem;
+}
+.hero-catch { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--muted); margin-bottom: 2rem; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .65rem 1.5rem; border-radius: var(--pill);
+  font-weight: 600; font-size: .95rem; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent;
+  transition: filter var(--ease), transform var(--ease), background var(--ease), border-color var(--ease);
+}
+.btn-primary { background: var(--gradient-hero); color: #111; }
+.btn-primary:hover, .btn-primary:focus-visible { filter: brightness(1.1); transform: translateY(-2px); }
+.btn-outline { background: transparent; border-color: var(--accent); color: var(--accent); }
+.btn-outline:hover, .btn-outline:focus-visible { background: color-mix(in srgb, var(--accent) 12%, transparent); transform: translateY(-2px); }
+.btn-sm { padding: .4rem 1rem; font-size: .82rem; }
+.badge-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.badge { display: inline-block; padding: .25rem .75rem; border-radius: var(--pill); font-size: .8rem; font-weight: 600; }
+.badge.a1 { background: color-mix(in srgb, var(--accent)   15%, transparent); color: var(--accent); }
+.badge.a2 { background: color-mix(in srgb, var(--accent-2) 15%, transparent); color: var(--accent-2); }
+.badge.a3 { background: color-mix(in srgb, var(--accent-3) 15%, transparent); color: var(--accent-3); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+.skills-grid h3 { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .25rem; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); display: flex; flex-direction: column; transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease); }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-glow); border-color: var(--accent); }
+.card-body { padding: 1.5rem; flex: 1; }
+.card-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+.card-body p  { font-size: .9rem; color: var(--muted); margin-bottom: 1rem; }
+.card-links { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: .75rem; }
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ""; position: absolute; left: .6rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent-2)); }
+.tl-item { position: relative; padding: 0 0 2rem 1.5rem; }
+.tl-item::before { content: ""; position: absolute; left: -1.45rem; top: .35rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-year { font-size: .8rem; font-weight: 700; color: var(--accent); letter-spacing: .05em; display: block; margin-bottom: .25rem; }
+.tl-role { font-weight: 700; }
+.tl-org  { font-size: .9rem; color: var(--muted); }
+#contact { text-align: center; }
+.contact-lead { color: var(--muted); margin-bottom: 2rem; }
+.contact-list { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+.contact-link {
+  display: flex; align-items: center; gap: .6rem;
+  text-decoration: none; color: var(--fg); font-weight: 600; font-size: 1rem;
+  padding: .75rem 1.5rem; border: 1px solid var(--border); border-radius: var(--r); background: var(--card);
+  transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+}
+.contact-link:hover, .contact-link:focus-visible { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-glow); }
+footer { border-top: 1px solid var(--border); padding: 1.5rem; }
+.footer-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; font-size: .85rem; color: var(--muted); }
+.footer-inner a { display: flex; align-items: center; gap: .4rem; text-decoration: none; color: var(--muted); transition: color var(--ease); }
+.footer-inner a:hover { color: var(--accent); }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--ease), transform var(--ease); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+  .blob { display: none; }
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 768px) {
+  nav ul { gap: 0; }
+  nav a  { padding: .3rem .5rem; font-size: .8rem; }
+  .hero-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .hero-cta   { justify-content: center; }
+  .hero-photo { width: 140px; height: 140px; }
+  .contact-list { flex-direction: column; align-items: center; }
+  .footer-inner { flex-direction: column; gap: .75rem; text-align: center; }
+}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">メインコンテンツへスキップ</a>
+
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+
+  <header>
+    <div class="header-inner">
+      <a href="#hero" class="logo" aria-label="トップへ戻る">YT</a>
+      <nav aria-label="メインナビゲーション">
+        <ul>
+          <li><a href="#about"      data-i18n-jp="About"        data-i18n-en="About">About</a></li>
+          <li><a href="#skills"     data-i18n-jp="スキル"       data-i18n-en="Skills">スキル</a></li>
+          <li><a href="#projects"   data-i18n-jp="プロジェクト" data-i18n-en="Projects">プロジェクト</a></li>
+          <li><a href="#experience" data-i18n-jp="経歴"         data-i18n-en="Experience">経歴</a></li>
+          <li><a href="#contact"    data-i18n-jp="連絡先"       data-i18n-en="Contact">連絡先</a></li>
+        </ul>
+      </nav>
+      <div class="header-controls">
+        <button id="lang-toggle"  aria-label="言語を切り替える" aria-pressed="false">EN</button>
+        <button id="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false">☀️</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ① HERO -->
+    <section id="hero" aria-labelledby="hero-name">
+      <div class="hero-inner">
+        <div class="hero-photo-wrap">
+          <img
+            src="TODO: プロフィール写真のURLを入れてください"
+            alt="田中 佑理のプロフィール写真"
+            width="200" height="200"
+            class="hero-photo"
+            onerror="this.style.display='none'"
+          >
+        </div>
+        <div class="hero-text">
+          <h1 id="hero-name" class="gradient-text">
+            <span data-i18n-jp="田中 佑理" data-i18n-en="Yuri Tanaka">田中 佑理</span>
+          </h1>
+          <p class="hero-catch">
+            <span data-i18n-jp="経済学部三年　会計ファイナンス学科"
+                  data-i18n-en="Third-year student, Faculty of Economics, Accounting and Finance Department">
+              経済学部三年　会計ファイナンス学科
+            </span>
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span data-i18n-jp="プロジェクト" data-i18n-en="Projects">プロジェクト</span>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <span data-i18n-jp="連絡先" data-i18n-en="Contact">連絡先</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ② ABOUT -->
+    <section id="about" aria-labelledby="about-h" class="reveal">
+      <div class="section-inner">
+        <h2 id="about-h">
+          <span data-i18n-jp="自己紹介" data-i18n-en="About Me">自己紹介</span>
+          <span class="section-bar" aria-hidden="true"></span>
+        </h2>
+        <p data-i18n-jp="名古屋市立大学　経済学部三年　会計ファイナンス学科。河合勝彦ゼミ所属。大学1〜2年で簿記を中心とした会計分野と経済学の基礎を学習しました。現在はゼミでAIエージェントの活用について勉強しています。Pythonについてはまだ初歩的な段階ですが基礎の学習を進めており、今後ゼミの作品制作に活用したいと考えています。加えて、GISを活用した制作にも取り組みたいと考えています。卒業後はシステムエンジニアを志望しています。"
+           data-i18n-en="I am a third-year student in the Department of Accounting and Finance, Faculty of Economics, Nagoya City University. I belong to Professor Katsuhiko Kawai's seminar. In my first and second years of university, I studied accounting, mainly bookkeeping, and the fundamentals of economics. Currently, I am studying the application of AI agents in my seminar. I am still at the beginner stage with Python, but I am making progress in learning the basics and would like to use it in future seminar projects. In addition, I would like to work on projects using GIS. After graduation, I aspire to become a systems engineer.">
+          名古屋市立大学　経済学部三年　会計ファイナンス学科。河合勝彦ゼミ所属。大学1〜2年で簿記を中心とした会計分野と経済学の基礎を学習しました。現在はゼミでAIエージェントの活用について勉強しています。Pythonについてはまだ初歩的な段階ですが基礎の学習を進めており、今後ゼミの作品制作に活用したいと考えています。加えて、GISを活用した制作にも取り組みたいと考えています。卒業後はシステムエンジニアを志望しています。
+        </p>
+      </div>
+    </section>
+
+    <!-- ③ SKILLS -->
+    <section id="skills" aria-labelledby="skills-h" class="reveal">
+      <div class="section-inner">
+        <h2 id="skills-h">
+          <span data-i18n-jp="スキル" data-i18n-en="Skills">スキル</span>
+          <span class="section-bar" aria-hidden="true"></span>
+        </h2>
+        <div class="skills-grid">
+          <div>
+            <h3 data-i18n-jp="資格" data-i18n-en="Certifications">資格</h3>
+            <ul class="badge-list">
+              <li><span class="badge a3" data-i18n-jp="日商簿記二級" data-i18n-en="JCCI Bookkeeping Level 2">日商簿記二級</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n-jp="学習中の技術" data-i18n-en="Currently Learning">学習中の技術</h3>
+            <ul class="badge-list">
+              <li><span class="badge a1" data-i18n-jp="Python（基礎）"     data-i18n-en="Python (Basics)">Python（基礎）</span></li>
+              <li><span class="badge a1" data-i18n-jp="AIエージェント活用" data-i18n-en="AI Agent Applications">AIエージェント活用</span></li>
+              <li><span class="badge a2" data-i18n-jp="GIS"                data-i18n-en="GIS">GIS</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n-jp="会計・経済" data-i18n-en="Accounting &amp; Economics">会計・経済</h3>
+            <ul class="badge-list">
+              <li><span class="badge a2" data-i18n-jp="財務会計"     data-i18n-en="Financial Accounting">財務会計</span></li>
+              <li><span class="badge a2" data-i18n-jp="管理会計"     data-i18n-en="Managerial Accounting">管理会計</span></li>
+              <li><span class="badge a2" data-i18n-jp="経済学基礎"   data-i18n-en="Economics Fundamentals">経済学基礎</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ PROJECTS -->
+    <section id="projects" aria-labelledby="projects-h" class="reveal">
+      <div class="section-inner">
+        <h2 id="projects-h">
+          <span data-i18n-jp="プロジェクト" data-i18n-en="Projects">プロジェクト</span>
+          <span class="section-bar" aria-hidden="true"></span>
+        </h2>
+        <div class="projects-grid">
+          <!-- TODO: 以下のカードをコピーしてプロジェクトを追加してください -->
+          <article class="card reveal">
+            <div class="card-body">
+              <h3 data-i18n-jp="TODO: プロジェクト名を入れてください" data-i18n-en="TODO: Enter project title">TODO: プロジェクト名を入れてください</h3>
+              <p data-i18n-jp="TODO: プロジェクトの説明を入れてください" data-i18n-en="TODO: Enter project description">TODO: プロジェクトの説明を入れてください</p>
+              <ul class="badge-list">
+                <li><span class="badge a1">TODO: 技術スタック</span></li>
+              </ul>
+            </div>
+            <div class="card-links">
+              <a href="TODO: GitHubリポジトリURL" class="btn btn-sm btn-outline" target="_blank" rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                GitHub
+              </a>
+              <a href="TODO: ライブURL" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ EXPERIENCE -->
+    <section id="experience" aria-labelledby="exp-h" class="reveal">
+      <div class="section-inner">
+        <h2 id="exp-h">
+          <span data-i18n-jp="経歴・学歴" data-i18n-en="Experience">経歴・学歴</span>
+          <span class="section-bar" aria-hidden="true"></span>
+        </h2>
+        <ol class="timeline">
+          <!-- TODO: 経歴を追加してください -->
+          <li class="tl-item reveal">
+            <span class="tl-year">2022</span>
+            <div class="tl-body">
+              <p class="tl-role" data-i18n-jp="入学" data-i18n-en="Enrolled">入学</p>
+              <p class="tl-org"  data-i18n-jp="名古屋市立大学 経済学部 会計ファイナンス学科" data-i18n-en="Nagoya City University, Faculty of Economics, Dept. of Accounting and Finance">名古屋市立大学 経済学部 会計ファイナンス学科</p>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <span class="tl-year">TODO</span>
+            <div class="tl-body">
+              <p class="tl-role" data-i18n-jp="TODO: 役職・学年を入れてください" data-i18n-en="TODO: Enter role">TODO: 役職・学年を入れてください</p>
+              <p class="tl-org"  data-i18n-jp="TODO: 所属機関を入れてください"   data-i18n-en="TODO: Enter organization">TODO: 所属機関を入れてください</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ⑥ CONTACT -->
+    <section id="contact" aria-labelledby="contact-h" class="reveal">
+      <div class="section-inner">
+        <h2 id="contact-h">
+          <span data-i18n-jp="連絡先" data-i18n-en="Contact">連絡先</span>
+          <span class="section-bar" aria-hidden="true"></span>
+        </h2>
+        <p class="contact-lead" data-i18n-jp="お気軽にご連絡ください。" data-i18n-en="Feel free to reach out.">お気軽にご連絡ください。</p>
+        <ul class="contact-list">
+          <li>
+            <a href="https://github.com/yuri-tanaka-73" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHubプロフィールを開く">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              yuri-tanaka-73
+            </a>
+          </li>
+          <li>
+            <a href="mailto:c243166@ed.nagoya-cu.ac.jp" class="contact-link" aria-label="メールを送る">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              c243166@ed.nagoya-cu.ac.jp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2026 Yuri Tanaka</p>
+      <a href="https://github.com/yuri-tanaka-73" target="_blank" rel="noopener noreferrer" aria-label="GitHubリポジトリを開く">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </footer>
+
+  <script>
+(() => {
+  'use strict';
+  const html = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  const DARK = 'dark', LIGHT = 'light';
+
+  function applyTheme(t) {
+    html.dataset.theme = t;
+    themeBtn.textContent = t === DARK ? '☀️' : '🌙';
+    themeBtn.setAttribute('aria-pressed', String(t === LIGHT));
+    localStorage.setItem('theme', t);
+  }
+  applyTheme(localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? LIGHT : DARK));
+  themeBtn.addEventListener('click', () => applyTheme(html.dataset.theme === DARK ? LIGHT : DARK));
+
+  const langBtn = document.getElementById('lang-toggle');
+  function applyLang(lang) {
+    html.lang = lang;
+    langBtn.textContent = lang === 'ja' ? 'EN' : 'JP';
+    langBtn.setAttribute('aria-pressed', String(lang === 'en'));
+    localStorage.setItem('lang', lang);
+    const key = lang === 'ja' ? 'i18nJp' : 'i18nEn';
+    document.querySelectorAll('[data-i18n-jp]').forEach(el => {
+      const text = el.dataset[key];
+      if (text) el.textContent = text;
+    });
+  }
+  applyLang(localStorage.getItem('lang') || (navigator.language.startsWith('ja') ? 'ja' : 'en'));
+  langBtn.addEventListener('click', () => applyLang(html.lang === 'ja' ? 'en' : 'ja'));
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+})();
+  </script>
+</body>
+</html>
