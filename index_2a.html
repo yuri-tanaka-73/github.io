@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ゆり / Yuri — Portfolio</title>
+  <meta name="description" content="経済学部3年・会計ファイナンス学科。簿記2級取得、AIエージェント・GIS・Pythonを学習中。卒業後はシステムエンジニア志望。" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="ゆり / Yuri — Portfolio" />
+  <meta property="og:description" content="経済学部3年・会計ファイナンス学科。簿記2級取得、AIエージェント・GIS・Pythonを学習中。" />
+  <meta property="og:image"       content="TODO: プロフィール写真のURLを入れてください" />
+  <meta property="og:url"         content="TODO: 公開URLを入れてください" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="ゆり / Yuri — Portfolio" />
+  <meta name="twitter:description" content="経済学部3年・会計ファイナンス学科。簿記2級取得、AIエージェント・GIS・Pythonを学習中。" />
+  <meta name="twitter:image"       content="TODO: プロフィール写真のURLを入れてください" />
+
+  <!-- Favicon: inline SVG with initial -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%239bc420'/><text x='16' y='22' font-size='18' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>Y</text></svg>" />
+
+  <link rel="stylesheet" href="style_2a.css" />
+</head>
+<body>
+
+  <!-- Blob background -->
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">メインコンテンツへスキップ</a>
+
+  <!-- ══ Header ══ -->
+  <header>
+    <div class="header-inner">
+      <span class="logo" aria-label="イニシャル Y">Y</span>
+
+      <nav aria-label="メインナビゲーション">
+        <a href="#about"
+           data-i18n-jp="About"
+           data-i18n-en="About">About</a>
+        <a href="#projects"
+           data-i18n-jp="制作物"
+           data-i18n-en="Projects">制作物</a>
+        <a href="#experience"
+           data-i18n-jp="経歴"
+           data-i18n-en="Experience">経歴</a>
+        <a href="#contact"
+           data-i18n-jp="連絡先"
+           data-i18n-en="Contact">連絡先</a>
+      </nav>
+
+      <div class="header-controls">
+        <button id="lang-toggle"  class="icon-btn"
+                aria-label="言語を切り替える" aria-pressed="false">EN</button>
+        <button id="theme-toggle" class="icon-btn"
+                aria-label="テーマを切り替える" aria-pressed="false">☀️</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ══ Hero ══ -->
+    <section id="hero" class="tatami-border" aria-labelledby="hero-name">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="reveal">
+            <img
+              class="hero-photo"
+              src="TODO: プロフィール写真のパスを入れてください（例: photo.jpg）"
+              alt="ゆりのプロフィール写真"
+              width="160" height="160"
+            />
+          </div>
+          <div class="reveal">
+            <h1 class="hero-name" id="hero-name"
+                data-i18n-jp="ゆり"
+                data-i18n-en="Yuri">ゆり</h1>
+            <p class="hero-catch"
+               data-i18n-jp="経済学部三年　会計ファイナンス学科"
+               data-i18n-en="Third-year student, Faculty of Economics, Accounting and Finance Department">
+              経済学部三年　会計ファイナンス学科
+            </p>
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary"
+                 data-i18n-jp="制作物を見る"
+                 data-i18n-en="View Projects">制作物を見る</a>
+              <a href="#contact"  class="btn btn-outline"
+                 data-i18n-jp="連絡する"
+                 data-i18n-en="Contact">連絡する</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ About ══ -->
+    <section id="about" class="tatami-border" aria-labelledby="about-title">
+      <div class="container">
+        <h2 class="section-heading reveal" id="about-title"
+            data-i18n-jp="About" data-i18n-en="About">About</h2>
+        <div class="section-bar reveal"></div>
+        <p class="about-text reveal"
+           data-i18n-jp="大学1～2年で簿記を中心とした会計分野と経済学の基礎を学習しました。現在はゼミでAIエージェントの活用について勉強しています。Pythonについてはまだ初歩的な段階ですが基礎の学習を進めており、今後ゼミの作品制作に活用したいと考えています。加えて、GISを活用した制作にも取り組みたいと考えています。"
+           data-i18n-en="In my first and second years of university, I studied accounting, mainly bookkeeping, and the fundamentals of economics. Currently, I am studying the application of AI agents in my seminar. I am still at the beginner stage with Python, but I am making progress in learning the basics and would like to use it in future projects for the seminar. In addition, I would like to work on projects using GIS.">
+          大学1～2年で簿記を中心とした会計分野と経済学の基礎を学習しました。現在はゼミでAIエージェントの活用について勉強しています。Pythonについてはまだ初歩的な段階ですが基礎の学習を進めており、今後ゼミの作品制作に活用したいと考えています。加えて、GISを活用した制作にも取り組みたいと考えています。
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ Skills ══ -->
+    <section id="skills" class="tatami-border" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 class="section-heading reveal" id="skills-title"
+            data-i18n-jp="スキル" data-i18n-en="Skills">スキル</h2>
+        <div class="section-bar reveal"></div>
+
+        <div class="skills-category reveal">
+          <p class="skills-category-title"
+             data-i18n-jp="資格" data-i18n-en="Qualifications">資格</p>
+          <ul class="skills-list" role="list">
+            <li class="skill-badge cat-3"
+                data-i18n-jp="日商簿記 2級"
+                data-i18n-en="JCCI Bookkeeping Level 2">日商簿記 2級</li>
+          </ul>
+        </div>
+
+        <div class="skills-category reveal">
+          <p class="skills-category-title"
+             data-i18n-jp="学習中" data-i18n-en="Currently Learning">学習中</p>
+          <ul class="skills-list" role="list">
+            <li class="skill-badge cat-1"
+                data-i18n-jp="Python" data-i18n-en="Python">Python</li>
+            <li class="skill-badge cat-1"
+                data-i18n-jp="AIエージェント活用"
+                data-i18n-en="AI Agent Applications">AIエージェント活用</li>
+            <li class="skill-badge cat-2"
+                data-i18n-jp="GIS" data-i18n-en="GIS">GIS</li>
+          </ul>
+        </div>
+
+        <div class="skills-category reveal">
+          <p class="skills-category-title"
+             data-i18n-jp="専門知識" data-i18n-en="Domain Knowledge">専門知識</p>
+          <ul class="skills-list" role="list">
+            <li class="skill-badge cat-2"
+                data-i18n-jp="会計・ファイナンス"
+                data-i18n-en="Accounting &amp; Finance">会計・ファイナンス</li>
+            <li class="skill-badge cat-2"
+                data-i18n-jp="経済学" data-i18n-en="Economics">経済学</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Projects ══ -->
+    <section id="projects" class="tatami-border" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 class="section-heading reveal" id="projects-title"
+            data-i18n-jp="制作物" data-i18n-en="Projects">制作物</h2>
+        <div class="section-bar reveal"></div>
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+            <h3 data-i18n-jp="ポートフォリオサイト"
+                data-i18n-en="Portfolio Website">ポートフォリオサイト</h3>
+            <p data-i18n-jp="和モダン × 若草色をテーマに設計した個人ポートフォリオ。外部ライブラリ不使用、ダーク/ライトテーマ・日英切替対応。"
+               data-i18n-en="A personal portfolio designed with a Japanese modern × fresh green theme. No external libraries, with dark/light theme and JP/EN toggle.">
+              和モダン × 若草色をテーマに設計した個人ポートフォリオ。外部ライブラリ不使用、ダーク/ライトテーマ・日英切替対応。
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/yuri-tanaka-73"
+                 class="project-link-btn"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="GitHubでポートフォリオを見る">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <h3 data-i18n-jp="TODO: プロジェクトタイトルを入れてください"
+                data-i18n-en="TODO: Enter project title">TODO: プロジェクトタイトルを入れてください</h3>
+            <p data-i18n-jp="TODO: プロジェクトの説明を入れてください"
+               data-i18n-en="TODO: Enter project description">
+              TODO: プロジェクトの説明を入れてください
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">TODO: 技術スタック</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link-btn"
+                 aria-label="GitHubでプロジェクトを見る">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                GitHub
+              </a>
+              <a href="#" class="project-link-btn"
+                 aria-label="ライブデモを見る">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Live
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Experience ══ -->
+    <section id="experience" class="tatami-border" aria-labelledby="experience-title">
+      <div class="container">
+        <h2 class="section-heading reveal" id="experience-title"
+            data-i18n-jp="経歴" data-i18n-en="Experience">経歴</h2>
+        <div class="section-bar reveal"></div>
+        <ol class="timeline reveal" aria-label="経歴タイムライン">
+
+          <li class="timeline-item">
+            <time class="timeline-year" datetime="2024">2024</time>
+            <p class="timeline-role"
+               data-i18n-jp="大学入学"
+               data-i18n-en="University Enrollment">大学入学</p>
+            <p class="timeline-org"
+               data-i18n-jp="経済学部 会計ファイナンス学科"
+               data-i18n-en="Faculty of Economics, Accounting and Finance">
+              経済学部 会計ファイナンス学科
+            </p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══ Contact ══ -->
+    <section id="contact" class="tatami-border" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 class="section-heading reveal" id="contact-title"
+            data-i18n-jp="連絡先" data-i18n-en="Contact">連絡先</h2>
+        <div class="section-bar reveal"></div>
+        <ul class="contact-list reveal" role="list">
+
+          <li class="contact-item">
+            <a href="https://github.com/yuri-tanaka-73"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="GitHubプロフィール: yuri-tanaka-73">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              github.com/yuri-tanaka-73
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Yuri —
+      <a href="https://github.com/yuri-tanaka-73"
+         target="_blank" rel="noopener noreferrer">GitHub</a>
+    </p>
+  </footer>
+
+  <script src="script_2a.js"></script>
+</body>
+</html>
