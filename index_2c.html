@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゆり / Yuri — Portfolio</title>
+<meta name="description" content="ゆり(Yuri)のポートフォリオサイト。経済学部三年、AIエージェント・GISに興味があります。">
+<meta property="og:title" content="ゆり / Yuri — Portfolio">
+<meta property="og:description" content="ゆり(Yuri)のポートフォリオサイト。経済学部三年、AIエージェント・GISに興味があります。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yuri-tanaka-73.github.io/">
+<link rel="icon" type="image/jpeg" href="../ドキュメント/S__38641668_0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F7F6F2;
+  --main:#1F3A33;
+  --sub:#4F665D;
+  --text:#2A2A2A;
+  --border:#D8D5CF;
+  --accent:#C16A2A;
+  --card:#FDFCF8;
+  --header-h:68px;
+  --font-serif:"Noto Serif JP","Yu Mincho","游明朝",serif;
+  --font-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ease-soft:cubic-bezier(.4,0,.2,1)
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+  font-weight:300;
+  overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+ul{list-style:none}
+h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.4}
+
+/* ─── Skip link ─── */
+.skip-link{
+  position:fixed;top:-100%;left:8px;z-index:9999;
+  padding:8px 16px;background:var(--main);color:var(--bg);
+  border-radius:4px;font-size:.875rem;
+  transition:top .2s
+}
+.skip-link:focus{top:8px}
+
+/* ─── Header ─── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--header-h);
+  background:rgba(247,246,242,.88);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:background .4s
+}
+.header-inner{
+  max-width:1080px;margin:0 auto;padding:0 40px;
+  height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px
+}
+.logo{display:flex;align-items:center}
+.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+nav{display:flex;gap:4px}
+nav a{
+  padding:6px 16px;font-size:.8rem;font-weight:300;
+  color:var(--sub);letter-spacing:.1em;
+  border-radius:2px;
+  transition:color .3s var(--ease-soft)
+}
+nav a:hover{color:var(--main)}
+.header-controls{display:flex;gap:8px;align-items:center}
+.lang-toggle,.theme-toggle{
+  background:transparent;
+  border:1px solid var(--border);border-radius:2px;
+  padding:5px 12px;font-size:.75rem;font-weight:300;letter-spacing:.08em;
+  cursor:pointer;color:var(--sub);font-family:var(--font-sans);
+  transition:color .3s,border-color .3s
+}
+.lang-toggle:hover,.theme-toggle:hover{color:var(--main);border-color:var(--main)}
+
+/* ─── Dark theme ─── */
+[data-theme="dark"]{
+  --bg:#1a1a16;
+  --card:#212118;
+  --text:#e8e6e0;
+  --border:#3a3830;
+  --sub:#8a9e96;
+  --main:#9fbfb5
+}
+[data-theme="dark"] header{background:rgba(26,26,22,.9)}
+[data-theme="dark"] .theme-toggle{color:var(--sub)}
+
+/* ─── Main ─── */
+main{
+  max-width:1080px;margin:0 auto;padding:0 40px;
+  position:relative
+}
+section{padding:100px 0;scroll-margin-top:calc(var(--header-h) + 40px)}
+
+/* ─── Section heading ─── */
+.section-label{
+  display:flex;align-items:center;gap:16px;margin-bottom:56px
+}
+.section-label-line{
+  width:48px;height:1px;
+  background:linear-gradient(90deg,var(--accent),rgba(193,106,42,.2))
+}
+.section-label h2{
+  font-size:clamp(1.2rem,2.5vw,1.5rem);
+  color:var(--main);letter-spacing:.2em;font-weight:400
+}
+.section-label-en{
+  font-size:.7rem;color:var(--sub);letter-spacing:.2em;
+  font-family:var(--font-sans);font-weight:300;
+  margin-left:4px;align-self:flex-end;padding-bottom:2px
+}
+
+/* ─── Reveal ─── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease-soft),transform .7s var(--ease-soft)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── Hero ─── */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 0 80px;position:relative;
+  background:radial-gradient(ellipse 70% 60% at 15% 50%, rgba(193,106,42,.07) 0%, transparent 70%),
+             radial-gradient(ellipse 50% 80% at 85% 30%, rgba(31,58,51,.05) 0%, transparent 60%)
+}
+/* 桜吹雪パーティクル */
+#hero-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.hero-inner{display:flex;align-items:center;gap:72px;position:relative;z-index:1}
+.hero-avatar{flex-shrink:0;position:relative}
+/* 二重リング */
+.hero-avatar::before,.hero-avatar::after{
+  content:'';position:absolute;border-radius:50%;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none
+}
+.hero-avatar::before{
+  width:180px;height:180px;
+  border:1px solid rgba(193,106,42,.35)
+}
+.hero-avatar::after{
+  width:200px;height:200px;
+  border:1px solid rgba(193,106,42,.15)
+}
+.hero-avatar img{
+  width:160px;height:160px;border-radius:50%;object-fit:cover;
+  border:1px solid var(--border);
+  filter:sepia(8%);position:relative;z-index:1
+}
+.hero-text{}
+.hero-name{
+  font-size:clamp(2.8rem,7vw,4.5rem);
+  color:var(--main);margin-bottom:.35rem;letter-spacing:.05em;
+  text-shadow:0 2px 24px rgba(193,106,42,.12)
+}
+.hero-name-en{
+  font-family:var(--font-sans);font-size:clamp(.9rem,2vw,1.1rem);
+  color:var(--sub);font-weight:300;letter-spacing:.3em;
+  margin-bottom:1.2rem
+}
+.hero-catchphrase{
+  font-size:1rem;color:var(--sub);font-weight:300;
+  letter-spacing:.1em;margin-bottom:2.5rem;
+  border-left:3px solid var(--accent);padding-left:16px;
+  background:linear-gradient(90deg,rgba(193,106,42,.04),transparent 80%);
+  padding-top:6px;padding-bottom:6px
+}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+
+/* ─── Kamon-like divider ─── */
+.kamon-divider{
+  text-align:center;padding:12px 0;color:var(--border);
+  font-size:1.2rem;letter-spacing:.5em;
+  user-select:none;aria-hidden:true
+}
+
+/* ─── Buttons ─── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 28px;font-size:.82rem;font-weight:300;
+  letter-spacing:.15em;font-family:var(--font-sans);
+  cursor:pointer;border-radius:1px;
+  transition:background .3s var(--ease-soft),color .3s var(--ease-soft),border-color .3s var(--ease-soft),transform .3s var(--ease-soft)
+}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.btn-primary{
+  background:var(--main);color:var(--bg);border:1px solid var(--main)
+}
+.btn-primary:hover{background:var(--sub);border-color:var(--sub);transform:translateY(-1px)}
+.btn-outline{
+  background:transparent;color:var(--main);border:1px solid var(--main)
+}
+.btn-outline:hover{background:var(--main);color:var(--bg);transform:translateY(-1px)}
+.btn-sm{padding:7px 18px;font-size:.75rem}
+
+/* ─── About ─── */
+.about-body{
+  max-width:640px;
+  font-size:.975rem;color:var(--text);line-height:2;font-weight:300
+}
+.about-body p+p{margin-top:1.5rem}
+
+/* ─── Skills ─── */
+.skills-grid{display:flex;flex-direction:column;gap:40px}
+.skill-row h3{
+  font-size:.75rem;font-weight:400;letter-spacing:.2em;
+  color:var(--sub);margin-bottom:16px;
+  font-family:var(--font-sans)
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{
+  padding:6px 18px;border:1px solid var(--border);border-radius:1px;
+  font-size:.8rem;font-weight:300;letter-spacing:.1em;color:var(--main);
+  background:var(--card);
+  transition:border-color .3s,color .3s,background .3s
+}
+.tag:hover{border-color:var(--accent);color:var(--accent)}
+.tag-accent{border-color:color-mix(in srgb,var(--accent) 40%,var(--border));color:var(--accent)}
+
+/* ─── Projects ─── */
+.projects-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px
+}
+.project-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:36px 32px;
+  display:flex;flex-direction:column;gap:16px;
+  position:relative;overflow:hidden;
+  transition:border-color .4s var(--ease-soft),background .4s var(--ease-soft)
+}
+.project-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--accent),rgba(193,106,42,.3));
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .4s var(--ease-soft)
+}
+.project-card:hover{
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--border));
+  background:color-mix(in srgb,var(--accent) 3%,var(--card))
+}
+.project-card:hover::before{transform:scaleY(1)}
+.project-card h3{font-size:1.05rem;color:var(--main);letter-spacing:.05em}
+.project-card p{font-size:.875rem;color:var(--sub);line-height:1.9;flex:1;font-weight:300}
+.project-tech{display:flex;flex-wrap:wrap;gap:6px}
+.project-links{display:flex;gap:10px;margin-top:4px}
+
+/* ─── Timeline ─── */
+.timeline{padding-left:24px}
+.timeline-item{
+  position:relative;padding-bottom:48px;padding-left:28px
+}
+.timeline-item::before{
+  content:'';position:absolute;left:-1px;top:8px;
+  width:1px;height:100%;background:var(--border)
+}
+.timeline-item:last-child::before{display:none}
+.timeline-dot{
+  position:absolute;left:-5px;top:6px;
+  width:9px;height:9px;border-radius:50%;
+  border:1px solid var(--accent);background:var(--bg);
+  box-shadow:0 0 0 0 rgba(193,106,42,.3);
+  animation:dot-pulse 3s ease-in-out infinite
+}
+@keyframes dot-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(193,106,42,.3)}
+  50%{box-shadow:0 0 0 6px rgba(193,106,42,0)}
+}
+.timeline-year{
+  font-size:.72rem;font-weight:400;color:var(--accent);
+  letter-spacing:.2em;margin-bottom:8px;font-family:var(--font-sans)
+}
+.timeline-content h3{font-size:1rem;color:var(--main);margin-bottom:4px}
+.timeline-org{font-size:.85rem;color:var(--sub);font-weight:300}
+
+/* ─── Contact ─── */
+.contact-intro{
+  font-size:.95rem;color:var(--sub);font-weight:300;
+  letter-spacing:.05em;margin-bottom:40px;max-width:480px;line-height:2
+}
+.contact-links{display:flex;gap:20px;flex-wrap:wrap}
+.contact-link{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 24px;border:1px solid var(--border);border-radius:1px;
+  font-size:.82rem;font-weight:300;letter-spacing:.1em;color:var(--sub);
+  transition:border-color .3s,color .3s,background .3s
+}
+.contact-link:hover{border-color:var(--main);color:var(--main);background:color-mix(in srgb,var(--main) 4%,transparent)}
+.contact-link svg{width:18px;height:18px;flex-shrink:0}
+
+/* ─── Footer ─── */
+footer{
+  max-width:1080px;margin:0 auto;padding:32px 40px;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+  color:var(--sub);font-size:.75rem;font-weight:300;letter-spacing:.1em
+}
+footer a{color:var(--sub);transition:color .3s}
+footer a:hover{color:var(--main)}
+
+/* ─── Responsive ─── */
+@media(max-width:768px){
+  main,footer{padding-left:24px;padding-right:24px}
+  .header-inner{padding:0 20px}
+  nav{display:none}
+  section{padding:72px 0}
+  #hero{padding:100px 0 56px}
+  .hero-inner{flex-direction:column;gap:40px;text-align:center}
+  .hero-catchphrase{text-align:left}
+  .hero-cta{justify-content:center}
+  .hero-avatar img{width:120px;height:120px}
+  .projects-grid{grid-template-columns:1fr}
+  .contact-links{flex-direction:column}
+  footer{flex-direction:column;text-align:center}
+  .section-label{margin-bottom:36px}
+}
+@media(max-width:480px){
+  .hero-name{font-size:clamp(2.2rem,12vw,3rem)}
+}
+
+/* ─── Reduced motion ─── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:0s!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">メインコンテンツへ</a>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="Home">
+      <img src="../ドキュメント/S__38641668_0.jpg" alt="ゆり" width="36" height="36">
+    </a>
+    <nav aria-label="メインナビゲーション">
+      <a href="#about" data-i18n-jp="自己紹介" data-i18n-en="About">自己紹介</a>
+      <a href="#skills" data-i18n-jp="スキル" data-i18n-en="Skills">スキル</a>
+      <a href="#projects" data-i18n-jp="制作" data-i18n-en="Projects">制作</a>
+      <a href="#experience" data-i18n-jp="経歴" data-i18n-en="Experience">経歴</a>
+      <a href="#contact" data-i18n-jp="連絡" data-i18n-en="Contact">連絡</a>
+    </nav>
+    <div class="header-controls">
+      <button class="lang-toggle" aria-label="言語切替">
+        <span data-lang="ja">JP</span> / <span data-lang="en">EN</span>
+      </button>
+      <button class="theme-toggle" aria-label="テーマ切替" aria-pressed="false">☀</button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section id="hero" class="reveal">
+    <div id="hero-petals" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-avatar">
+        <img
+          src="../ドキュメント/S__38641668_0.jpg"
+          alt="ゆり" width="160" height="160">
+      </div>
+      <div class="hero-text">
+<h1 class="hero-name" data-i18n-jp="ゆり" data-i18n-en="Yuri">ゆり</h1>
+        <p class="hero-catchphrase" data-i18n-jp="経済学部三年 — AIエージェント・GISに興味" data-i18n-en="Third-year, Faculty of Economics — AI Agents · GIS">経済学部三年 — AIエージェント・GISに興味</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary" data-i18n-jp="制作を見る" data-i18n-en="View Projects">制作を見る</a>
+          <a href="#contact" class="btn btn-outline" data-i18n-jp="連絡する" data-i18n-en="Contact">連絡する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <div class="section-label">
+      <div class="section-label-line" aria-hidden="true"></div>
+      <h2 data-i18n-jp="自己紹介" data-i18n-en="About">自己紹介</h2>
+      <span class="section-label-en" aria-hidden="true">About</span>
+    </div>
+    <div class="about-body">
+      <p data-i18n-jp="大学1～2年で簿記を中心とした会計分野と経済学の基礎を学習しました。現在はゼミでAIエージェントの活用について勉強しています。" data-i18n-en="In my first and second years of university, I studied accounting, mainly bookkeeping, and the fundamentals of economics. Currently, I am studying the application of AI agents in my seminar.">大学1～2年で簿記を中心とした会計分野と経済学の基礎を学習しました。現在はゼミでAIエージェントの活用について勉強しています。</p>
+      <p data-i18n-jp="Pythonについてはまだ初歩的な段階ですが基礎の学習を進めており、今後ゼミの作品制作に活用したいと考えています。加えて、GISを活用した制作にも取り組みたいと考えています。卒業後はシステムエンジニアを志望しています。" data-i18n-en="I am still at the beginner stage with Python, but I am making progress in learning the basics and would like to apply it in future seminar projects. I am also interested in working with GIS. After graduation, I aspire to become a systems engineer.">Pythonについてはまだ初歩的な段階ですが基礎の学習を進めており、今後ゼミの作品制作に活用したいと考えています。加えて、GISを活用した制作にも取り組みたいと考えています。卒業後はシステムエンジニアを志望しています。</p>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="section-label">
+      <div class="section-label-line" aria-hidden="true"></div>
+      <h2 data-i18n-jp="スキル" data-i18n-en="Skills">スキル</h2>
+      <span class="section-label-en" aria-hidden="true">Skills</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <h3 data-i18n-jp="資格" data-i18n-en="Certifications">資格</h3>
+        <ul class="skill-tags" role="list">
+          <li class="tag tag-accent" data-i18n-jp="日商簿記二級" data-i18n-en="Bookkeeping Level 2">日商簿記二級</li>
+        </ul>
+      </div>
+      <div class="skill-row">
+        <h3 data-i18n-jp="言語" data-i18n-en="Languages">言語</h3>
+        <ul class="skill-tags" role="list">
+          <li class="tag" data-i18n-jp="Python（学習中）" data-i18n-en="Python (Learning)">Python（学習中）</li>
+          <li class="tag">HTML / CSS</li>
+        </ul>
+      </div>
+      <div class="skill-row">
+        <h3 data-i18n-jp="興味分野" data-i18n-en="Interests">興味分野</h3>
+        <ul class="skill-tags" role="list">
+          <li class="tag">AI Agent</li>
+          <li class="tag">GIS</li>
+          <li class="tag" data-i18n-jp="システムエンジニアリング" data-i18n-en="Systems Engineering">Systems Engineering</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="section-label">
+      <div class="section-label-line" aria-hidden="true"></div>
+      <h2 data-i18n-jp="制作" data-i18n-en="Projects">制作</h2>
+      <span class="section-label-en" aria-hidden="true">Projects</span>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <h3 data-i18n-jp="ポートフォリオサイト" data-i18n-en="Portfolio Website">ポートフォリオサイト</h3>
+        <p data-i18n-jp="GitHub Pages で公開している個人ポートフォリオサイト。HTML / CSS / JavaScript のみで構築し、和モダンデザイン・多言語切替に対応。" data-i18n-en="Personal portfolio site published on GitHub Pages. Built with HTML, CSS, and JavaScript only, featuring a Japanese modern design and bilingual support.">GitHub Pages で公開している個人ポートフォリオサイト。HTML / CSS / JavaScript のみで構築し、和モダンデザイン・多言語切替に対応。</p>
+        <div class="project-tech">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/yuri-tanaka-73/portfolio" class="btn btn-outline btn-sm" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://yuri-tanaka-73.github.io/portfolio" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Live</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h3 data-i18n-jp="ゼミ研究 — AIエージェント" data-i18n-en="Seminar — AI Agents">ゼミ研究 — AIエージェント</h3>
+        <p data-i18n-jp="ゼミでの AI エージェント活用に関する研究プロジェクト。基礎調査から実装までを担当。" data-i18n-en="Research project on AI agent applications in seminar. Responsible from foundational research to implementation.">ゼミでの AI エージェント活用に関する研究プロジェクト。基礎調査から実装までを担当。</p>
+        <div class="project-tech">
+          <span class="tag">Python</span>
+          <span class="tag">AI Agent</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/yuri-tanaka-73/" class="btn btn-outline btn-sm" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h3 data-i18n-jp="準備中" data-i18n-en="Coming Soon">準備中</h3>
+        <p data-i18n-jp="次のプロジェクトを計画中です。" data-i18n-en="Next project is being planned.">次のプロジェクトを計画中です。</p>
+        <div class="project-tech">
+          <span class="tag tag-accent" data-i18n-jp="近日公開" data-i18n-en="Upcoming">近日公開</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="section-label">
+      <div class="section-label-line" aria-hidden="true"></div>
+      <h2 data-i18n-jp="経歴" data-i18n-en="Experience">経歴</h2>
+      <span class="section-label-en" aria-hidden="true">Experience</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-year">2024 – 2026</div>
+        <div class="timeline-content">
+          <h3 data-i18n-jp="経済学部（一～三年）" data-i18n-en="Faculty of Economics (Year 1–3)">経済学部（一～三年）</h3>
+          <p class="timeline-org" data-i18n-jp="名古屋市立大学" data-i18n-en="Nagoya City University">名古屋市立大学</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="section-label">
+      <div class="section-label-line" aria-hidden="true"></div>
+      <h2 data-i18n-jp="連絡" data-i18n-en="Contact">連絡</h2>
+      <span class="section-label-en" aria-hidden="true">Contact</span>
+    </div>
+    <p class="contact-intro" data-i18n-jp="お気軽にご連絡ください。" data-i18n-en="Feel free to get in touch.">お気軽にご連絡ください。</p>
+    <div class="contact-links">
+      <a href="https://github.com/yuri-tanaka-73" target="_blank" rel="noopener" class="contact-link" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:c243166@ed.nagoya-cu.ac.jp" class="contact-link" aria-label="メール">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span data-i18n-jp="メール" data-i18n-en="Email">メール</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Yuri</p>
+  <a href="https://github.com/yuri-tanaka-73/portfolio" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+<script>
+(function(){
+  var L='lang',T='theme';
+
+  function setLang(v){
+    document.documentElement.lang=v;
+    localStorage.setItem(L,v);
+    document.querySelectorAll('[data-i18n-jp]').forEach(function(el){
+      el.textContent=v==='ja'?el.dataset.i18nJp:el.dataset.i18nEn
+    });
+    document.querySelector('.lang-toggle').querySelectorAll('[data-lang]').forEach(function(s){
+      s.style.fontWeight=s.dataset.lang===v?'500':'300';
+      s.style.color=s.dataset.lang===v?'var(--main)':'var(--sub)'
+    })
+  }
+
+  function setTheme(v){
+    document.documentElement.setAttribute('data-theme',v);
+    localStorage.setItem(T,v);
+    var b=document.querySelector('.theme-toggle');
+    b.textContent=v==='dark'?'☽':'☀';
+    b.setAttribute('aria-pressed',v==='dark'?'true':'false')
+  }
+
+  var initL=localStorage.getItem(L)||(navigator.language&&navigator.language.startsWith('en')?'en':'ja');
+  var initT=localStorage.getItem(T)||'light';
+  setLang(initL);
+  setTheme(initT);
+
+  document.querySelector('.lang-toggle').addEventListener('click',function(){
+    setLang(document.documentElement.lang==='ja'?'en':'ja')
+  });
+  document.querySelector('.theme-toggle').addEventListener('click',function(){
+    setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')
+  });
+
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+    })
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+  /* 桜吹雪パーティクル */
+  var wrap=document.getElementById('hero-petals');
+  if(wrap&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var colors=['rgba(193,106,42,.18)','rgba(193,106,42,.10)','rgba(31,58,51,.12)','rgba(193,106,42,.14)'];
+    var css='@keyframes petal-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:.6}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}';
+    var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+    for(var i=0;i<14;i++){
+      (function(i){
+        var el=document.createElement('div');
+        var size=(Math.random()*5+4)+'px';
+        var left=(Math.random()*95)+'%';
+        var delay=(Math.random()*12)+'s';
+        var dur=(Math.random()*8+10)+'s';
+        var color=colors[i%colors.length];
+        el.style.cssText='position:absolute;width:'+size+';height:'+size+';left:'+left+';top:-10px;border-radius:50% 0 50% 0;background:'+color+';animation:petal-fall '+dur+' '+delay+' infinite linear';
+        wrap.appendChild(el)
+      })(i)
+    }
+  }
+})();
+</script>
+</body>
+</html>
